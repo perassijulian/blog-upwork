@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import EmptyList from '../../components/common/EmptyList';
 import BlogList from '../../components/Home/BlogList';
+import Sidebar from '../../components/Home/Sidebar';
 import Header from '../../components/Home/Header';
 import SearchBar from '../../components/Home/SearchBar';
 import { blogList } from '../../config/data';
+
+import './styles.css';
 
 const Home = () => {
   const [blogs, setBlogs] = useState(blogList);
@@ -42,9 +45,11 @@ const Home = () => {
         formSubmit={handleSearchBar}
         handleSearchKey={(e) => setSearchKey(e.target.value)}
       />
-
-      {/* Blog List & Empty View */}
-      {!blogs.length ? <EmptyList /> : <BlogList blogs={blogs} />}
+      <div className='main-content'>
+        {/* Blog List & Empty View */}
+        {!blogs.length ? <EmptyList /> : <BlogList blogs={blogs} />}
+        <Sidebar blogs={blogs} />
+      </div>
     </div>
   );
 };

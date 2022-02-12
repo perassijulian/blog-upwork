@@ -1,7 +1,28 @@
+.navbar-wrap{
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 0;
+}
+
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar--item{
+  padding: 10px;
+  font-weight: 600;
+}
+
+.navbar--item:hover{
+  color:#0f52ba;
+  cursor: pointer;
+}
 .searchBar-wrap {
   background-color: #f0f0f0;
   width: fit-content;
-  margin: 2.5rem auto 4rem auto;
+
   padding: 0.5rem;
   border-radius: 5px;
 }
