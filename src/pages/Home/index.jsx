@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import EmptyList from '../../components/common/EmptyList';
 import BlogList from '../../components/Home/BlogList';
 import Sidebar from '../../components/Home/Sidebar';
@@ -11,6 +11,20 @@ import './styles.css';
 const Home = () => {
   const [blogs, setBlogs] = useState(blogList);
   const [searchKey, setSearchKey] = useState('');
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const list = [];
+    const categories = blogList.map((blog) => {
+      if (!list.includes(blog.category)) {
+        list.push(blog.category.toUpperCase())
+        return blog.category;
+      } else {
+        return "";
+      }
+    });
+    setCategories(list);
+  }, []);
 
   // Search submit
   const handleSearchBar = (e) => {
@@ -40,6 +54,7 @@ const Home = () => {
 
       {/* Search Bar */}
       <SearchBar
+        categories = {categories}
         value={searchKey}
         clearSearch={handleClearSearch}
         formSubmit={handleSearchBar}
