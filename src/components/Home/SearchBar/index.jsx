@@ -11,7 +11,7 @@ const SearchBar = ({ categories, formSubmit, value, handleSearchKey, clearSearch
         {categories.map((item) => {return (
           <div className='navbar--item'>
             {item}
-            <Submenu />
+            <Submenu item={item} />
           </div>
         )})}
       </div>
@@ -31,9 +31,9 @@ const SearchBar = ({ categories, formSubmit, value, handleSearchKey, clearSearch
   )
 };
 
-function Submenu() {
+function Submenu({item}) {
   return (
-    <div className='navbar--submenu'>Holi</div>
+    <div className='navbar--submenu'>Display searching for {item} topics</div>
   )
 }
 
