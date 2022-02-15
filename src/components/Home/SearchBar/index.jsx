@@ -1,8 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import './styles.scss';
+import BlogItem from './BlogItem';
 
-const SearchBar = ({ categories, formSubmit, value, handleSearchKey, clearSearch }) => {
-  
+const SearchBar = ({ blogList, categories, formSubmit, value, handleSearchKey, clearSearch }) => {
+  const [searchedBlogs, setSearchedBlogs] = useState([]);
+
+
+    const handleBlogsToDisplay = (item) => {   
+      const allBlogs = blogList;
+      const filteredBlogs = allBlogs.filter((blog) =>
+        blog.category.toLowerCase().includes(item.toLowerCase().trim())
+      );
+      console.log(filteredBlogs);
+      return filteredBlogs;
+   };
+
   
 
   return (
@@ -11,7 +23,7 @@ const SearchBar = ({ categories, formSubmit, value, handleSearchKey, clearSearch
         {categories.map((item) => {return (
           <div className='navbar--item'>
             {item}
-            <Submenu item={item} />
+            <Submenu blogsToDispaly={handleBlogsToDisplay(item)} />
           </div>
         )})}
       </div>
@@ -31,9 +43,15 @@ const SearchBar = ({ categories, formSubmit, value, handleSearchKey, clearSearch
   )
 };
 
-function Submenu({item}) {
+
+function Submenu({blogsToDispaly}) {
+  
   return (
-    <div className='navbar--submenu'>Display searching for {item} topics</div>
+    <div className='navbar--submenu'>
+    {blogsToDispaly.map((blog) => (
+      <BlogItem blog={blog} />
+    ))}
+    </div>
   )
 }
 

@@ -24,6 +24,7 @@ const Home = () => {
       }
     });
     setCategories(list);
+    console.log('categories updated');
   }, []);
 
   // Search submit
@@ -54,6 +55,7 @@ const Home = () => {
 
       {/* Search Bar */}
       <SearchBar
+        blogList= {blogList}
         categories = {categories}
         value={searchKey}
         clearSearch={handleClearSearch}
