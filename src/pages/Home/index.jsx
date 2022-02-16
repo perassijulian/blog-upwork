@@ -15,16 +15,14 @@ const Home = () => {
 
   useEffect(() => {
     const list = [];
-    const categories = blogList.map((blog) => {
-      if (!list.includes(blog.category)) {
-        list.push(blog.category.toUpperCase())
-        return blog.category;
-      } else {
-        return "";
+    for (let i = 0; i < blogList.length; i++) {
+      if (list.indexOf(blogList[i].category.toUpperCase()) === -1) {
+        
+        list.push(blogList[i].category.toUpperCase());
       }
-    });
-    setCategories(list);
-    console.log('categories updated');
+    }
+    setCategories(list)
+    
   }, []);
 
   // Search submit

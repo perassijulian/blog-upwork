@@ -21,8 +21,7 @@ const BlogItem = ({
       <div>
         <Chip label={category} />
         <figure>
-            <img className='blogItem-cover-search' src={cover} alt='cover' />
-          
+            <img className='blogItem-cover-search' src={cover} alt='cover' />      
         </figure>
       </div>
       <div className='blogItem-desc-wrap-search' >

@@ -3,9 +3,6 @@ import './styles.scss';
 import BlogItem from './BlogItem';
 
 const SearchBar = ({ blogList, categories, formSubmit, value, handleSearchKey, clearSearch }) => {
-  const [searchedBlogs, setSearchedBlogs] = useState([]);
-
-
     const handleBlogsToDisplay = (item) => {   
       const allBlogs = blogList;
       const filteredBlogs = allBlogs.filter((blog) =>

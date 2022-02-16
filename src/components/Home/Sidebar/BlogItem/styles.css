@@ -1,5 +1,7 @@
+
 .blogItem-wrap-side {
   display: flex;
+  align-content: center;
   margin-top: 20px;
 }
 
