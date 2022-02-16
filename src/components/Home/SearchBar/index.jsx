@@ -8,7 +8,6 @@ const SearchBar = ({ blogList, categories, formSubmit, value, handleSearchKey, c
       const filteredBlogs = allBlogs.filter((blog) =>
         blog.category.toLowerCase().includes(item.toLowerCase().trim())
       );
-      console.log(filteredBlogs);
       return filteredBlogs;
    };
 

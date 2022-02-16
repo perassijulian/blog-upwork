@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+
+
 import EmptyList from '../../components/common/EmptyList';
 import BlogList from '../../components/Home/BlogList';
 import Sidebar from '../../components/Home/Sidebar';
@@ -12,6 +15,10 @@ const Home = () => {
   const [blogs, setBlogs] = useState(blogList);
   const [searchKey, setSearchKey] = useState('');
   const [categories, setCategories] = useState([]);
+
+  const blogsAPI = useSelector((state) => state.blogs);
+
+  console.log(blogsAPI);
 
   useEffect(() => {
     const list = [];
