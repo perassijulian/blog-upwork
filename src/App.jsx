@@ -6,6 +6,7 @@ import './App.css';
 import { getPosts } from './actions/blog'
 import Blog from './pages/Blog';
 import Home from './pages/Home';
+import Form from './pages/Form';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -20,6 +21,7 @@ const App = () => {
       <Switch>
         <Route path='/' exact component={Home} />
         <Route path='/blog/:id' component={Blog} />
+        <Route path='/post' component={Form} />
         <Redirect to='/' />
       </Switch>
     </div>

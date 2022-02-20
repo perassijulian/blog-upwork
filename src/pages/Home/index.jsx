@@ -16,10 +16,6 @@ const Home = () => {
   const [searchKey, setSearchKey] = useState('');
   const [categories, setCategories] = useState([]);
 
-  const blogsAPI = useSelector((state) => state.blogs);
-
-  console.log(blogsAPI);
-
   useEffect(() => {
     const list = [];
     for (let i = 0; i < blogList.length; i++) {

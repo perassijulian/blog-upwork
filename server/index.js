@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(cors());
 
 //routes
-app.use('/blog', blogRoute);
+app.use('/post', blogRoute);
 
 mongoose.connect(CONNECTION_URL)
     .then( app.listen(PORT, () => {console.log(`Server running on http://localhost:${PORT}`)}) )
