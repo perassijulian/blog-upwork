@@ -12,7 +12,7 @@ I am focusing mostly on the logic part of it than on the design. I reaffirmed th
 
 ## Concepts
 
-The main concepts that I reaffirmed doing this project were the concept of composable component, the use of mapping for rendering, the determination of requirements, conditional rendering, the use of SASS variables and mixin, etc.
+The main concepts that I reaffirmed doing this project were the concept of composable component, the use of mapping for rendering, the determination of requirements, conditional rendering, the use of SASS variables and mixin, redux to store variables and to connect with server, etc.
 
 ## Status
 
