@@ -16,10 +16,6 @@ const Form = () => {
     createdAt:""
   });
 
-  const blogsAPI = useSelector((state) => state.blogs);
-
-  console.log(blogsAPI);
-
   const dispatch = useDispatch();
 
   const handleChange = (event) => {
@@ -31,7 +27,6 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     dispatch(createPost(formData));
   }
 

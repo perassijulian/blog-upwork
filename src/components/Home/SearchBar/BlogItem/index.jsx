@@ -12,11 +12,11 @@ const BlogItem = ({
     authorAvatar,
     cover,
     category,
-    id,
+    _id,
   },
 }) => {
   return (
-    <Link className='blogItem-link-search' to={`/blog/${id}`}>
+    <Link className='blogItem-link-search' to={`/blog/${_id}`}>
     <div className='blogItem-wrap-search'>
       <div>
         <Chip label={category} />

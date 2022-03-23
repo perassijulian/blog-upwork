@@ -12,7 +12,7 @@ const BlogItem = ({
     authorAvatar,
     cover,
     category,
-    id,
+    _id,
   },
 }) => {
   return (
@@ -35,7 +35,7 @@ const BlogItem = ({
           </div>
         </footer>
         <p className='blogItem-desc'>{description}</p>
-        <Link className='blogItem-link' to={`/blog/${id}`}>
+        <Link className='blogItem-link' to={`/blog/${_id}`}>
             Read more ➝
         </Link>
       </div>

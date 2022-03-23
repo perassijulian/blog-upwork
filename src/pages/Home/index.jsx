@@ -7,15 +7,23 @@ import BlogList from '../../components/Home/BlogList';
 import Sidebar from '../../components/Home/Sidebar';
 import Header from '../../components/Home/Header';
 import SearchBar from '../../components/Home/SearchBar';
-import { blogList } from '../../config/data';
+//import { blogList } from '../../config/data';
 
 import './styles.css';
 
 const Home = () => {
-  const [blogs, setBlogs] = useState(blogList);
+  const [blogs, setBlogs] = useState([]);
   const [searchKey, setSearchKey] = useState('');
   const [categories, setCategories] = useState([]);
 
+  const blogList = useSelector(state => state.blogs);
+
+  useEffect(() => {
+    setBlogs(blogList);
+  }, [blogList])
+
+
+  //Check categories to set the navigation bar
   useEffect(() => {
     const list = [];
     for (let i = 0; i < blogList.length; i++) {
@@ -26,7 +34,7 @@ const Home = () => {
     }
     setCategories(list)
     
-  }, []);
+  }, [blogList]);
 
   // Search submit
   const handleSearchBar = (e) => {

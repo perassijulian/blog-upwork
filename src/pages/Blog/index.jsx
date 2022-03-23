@@ -1,21 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import { blogList } from '../../config/data';
 import Chip from '../../components/common/Chip';
 import EmptyList from '../../components/common/EmptyList';
 import './styles.css';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Blog = () => {
   const { id } = useParams();
   const [blog, setBlog] = useState(null);
 
+  const blogList = useSelector(state => state.blogs);
+
   useEffect(() => {
-    let blog = blogList.find((blog) => blog.id === parseInt(id));
+    let blog = blogList.find((blog) => blog._id === id);
     if (blog) {
       setBlog(blog);
     }
-  }, []);
+  }, [blogList]);
 
   return (
     <>

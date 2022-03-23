@@ -12,7 +12,7 @@ const BlogItem = ({
     authorAvatar,
     cover,
     category,
-    id,
+    _id,
   },
 }) => {
   return (
@@ -24,26 +24,10 @@ const BlogItem = ({
         </figure>
       </div>
       <div className='blogItem-desc-wrap-side' >
-        <Link to={`/blog/${id}`}>
+        <Link to={`/blog/${_id}`}>
             <h3>{title}</h3>
         </Link>
-  {/**
-        <footer>
-          <div className='blogItem-author-side'>
-            <img src={authorAvatar} alt='avatar' />
-            <div>
-              <h6>{authorName}</h6>
-              <p>{createdAt}</p>
-            </div>
-          </div>
-        </footer>
-   */}
         <p className='blogItem-desc-side'>{description}</p>
-   {/**
-        <Link className='blogItem-link-side' to={`/blog/${id}`}>
-            Read more ➝
-        </Link>
-     */}
       </div>
     </div>
   );
