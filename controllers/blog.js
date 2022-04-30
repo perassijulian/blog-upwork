@@ -1,6 +1,6 @@
 const Blog = require("../models/blog.js");
 
-export const getBlog = async (req, res, next) => {
+const getBlog = async (req, res, next) => {
     try {
         const blogPosts = await Blog.find();
 
@@ -11,7 +11,7 @@ export const getBlog = async (req, res, next) => {
     }
 }
 
-export const createBlog = async (req, res, next) => {
+const createBlog = async (req, res, next) => {
     const newPost = new Blog(req.body);
 
     try {
@@ -22,3 +22,6 @@ export const createBlog = async (req, res, next) => {
         res.status(409).json({message: err.message})
     }
 }
+
+module.exports = getBlog;
+module.exports = createBlog;

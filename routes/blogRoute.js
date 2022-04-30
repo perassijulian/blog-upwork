@@ -6,4 +6,4 @@ const blogRoute = express.Router();
 blogRoute.get('/', getBlog)
 blogRoute.post('/', createBlog)
 
-export default blogRoute;
+module.exports = blogRoute;
