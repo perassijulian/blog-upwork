@@ -7,7 +7,7 @@ const morgan = require('morgan');
 const path = require('path');
 const cors = require('cors');
 
-import blogRoute from './routes/blogRoute.js';
+const blogRoute = require('./routes/blogRoute.js');
 
 
 mongoose
