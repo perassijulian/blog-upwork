@@ -7,7 +7,7 @@ import BlogList from '../../components/Home/BlogList';
 import Sidebar from '../../components/Home/Sidebar';
 import Header from '../../components/Home/Header';
 import SearchBar from '../../components/Home/SearchBar';
-import { blogList } from '../../config/data';
+//import { blogList } from '../../config/data';
 
 import './styles.css';
 
@@ -16,7 +16,9 @@ const Home = () => {
   const [searchKey, setSearchKey] = useState('');
   const [categories, setCategories] = useState([]);
 
-  //const blogList = useSelector(state => state.blogs);
+  const blogList = useSelector(state => state.blogs);
+
+  console.log('state: ', blogList)
 
   useEffect(() => {
     setBlogs(blogList);

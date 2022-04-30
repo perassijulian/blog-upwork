@@ -5,8 +5,9 @@ const blogRoute = express.Router();
 blogRoute.get('/', async (req, res, next) => {
     try {
         const blogPosts = await Blog.find();
+        console.log('blogRoute, get: ', blogPosts);
 
-        res.status(200).json(blogPosts)
+        res.status(200).json(blogPosts);
 
     } catch (err) {
         res.status(404).json({message: err.message})
