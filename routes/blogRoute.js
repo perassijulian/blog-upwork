@@ -1,8 +1,11 @@
+const Blog = require("../models/blog");
+
 const express = require('express');
 
 const blogRoute = express.Router();
 
 blogRoute.get('/', async (req, res, next) => {
+    console.log('blogRoute, before find');
     try {
         const blogPosts = await Blog.find();
         console.log('blogRoute, get: ', blogPosts);
