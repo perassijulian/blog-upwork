@@ -11,14 +11,6 @@ const SearchBar = ({ blogList, categories, formSubmit, value, handleSearchKey, c
       return filteredBlogs;
    };
 
-   const handleLogIn = () => {
-
-   }
-
-   const handleSignUp = () => {
-
-   }
-
   return (
     <div className='navbar-wrap'>
       <div className='navbar'>
@@ -30,10 +22,6 @@ const SearchBar = ({ blogList, categories, formSubmit, value, handleSearchKey, c
         )})}
       </div>
       <div className='searchBar-wrap'>
-        <div className='accountManager'>
-          <button onClick={handleLogIn}>Log in</button>
-          <button onClick={handleSignUp}>Sign up</button>
-        </div>
         <form onSubmit={formSubmit}>
           <input
             type='text'
