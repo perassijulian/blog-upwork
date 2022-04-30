@@ -1,14 +1,14 @@
-import express from 'express';
-import mongoose from 'mongoose';
-import dotenv from 'dotenv';
+const express = require('express');
+const app = express();
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
 dotenv.config();
-import morgan from 'morgan';
-import path from 'path';
-import cors from 'cors';
+const morgan = require('morgan');
+const path = require('path');
+const cors = require('cors');
 
 import blogRoute from './routes/blogRoute.js';
 
-const app = express();
 
 mongoose
   .connect(process.env.MONGODB_URI)
@@ -25,10 +25,10 @@ app.use(express.json());
 //routes
 app.use('/post', blogRoute);
 
-app.use(express.static("/client/build"));
+app.use(express.static(path.join(__dirname, "/client/build")));
 
 app.get('*', (req, res) => {
-  res.sendFile('/client/build', 'index.html');
+  res.sendFile(path.join(__dirname, '/client/build', 'index.html'));
 });
 
 app.listen(process.env.PORT || 3001, () => {

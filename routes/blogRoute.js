@@ -1,5 +1,5 @@
-import express from 'express';
-import { getBlog, createBlog } from '../controllers/blog.js';
+const express = require('express');
+const { getBlog, createBlog } = require('../controllers/blog.js');
 
 const blogRoute = express.Router();
 
