@@ -1,36 +1,31 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const mongoose = require('mongoose');
-const dotenv = require('dotenv');
+const dotenv = require("dotenv");
+const mongoose = require("mongoose");
+const authRoute = require("./routes/auth");
+const userRoute = require("./routes/users");
+const postRoute = require("./routes/posts");
+const categoryRoute = require("./routes/categories");
+const path = require("path");
+
 dotenv.config();
-const morgan = require('morgan');
-const path = require('path');
-const cors = require('cors');
-
-const blogRoute = require('./routes/blogRoute.js');
-
-
-mongoose
-  .connect(process.env.MONGODB_URI)
-  .then(() => console.log("DB Connection Successfull!"))
-  .catch((err) => {
-    console.log(err);
-  });
-
-//middleware
-app.use(cors());
-app.use(morgan('dev'));
 app.use(express.json());
 
-//routes
-app.use('/post', blogRoute);
+mongoose
+  .connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify:true
+  })
+  .then(console.log("Connected to MongoDB"))
+  .catch((err) => console.log(err));
 
-app.use(express.static(path.join(__dirname, "/client/build")));
+app.use("/api/auth", authRoute);
+app.use("/api/users", userRoute);
+app.use("/api/posts", postRoute);
+app.use("/api/categories", categoryRoute);
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/client/build', 'index.html'));
-});
-
-app.listen(process.env.PORT || 3001, () => {
-  console.log("Backend server is running!");
+app.listen("5000", () => {
+  console.log("Backend is running.");
 });
