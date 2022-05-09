@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import "./write.css";
-import axios from "axios";
+import { axiosInstance } from '../../config';
 import { Context } from "../../context/Context";
 import {
   getStorage,
@@ -73,7 +73,7 @@ export default function Write() {
     };
 
     try {
-      const res = await axios.post("/posts", newPost);
+      const res = await axiosInstance.post("/posts", newPost);
       window.location.replace("/post/" + res.data._id);
     } catch (err) {}
   };

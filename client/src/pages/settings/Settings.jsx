@@ -2,7 +2,7 @@ import "./settings.css";
 import Sidebar from "../../components/sidebar/Sidebar";
 import { useContext, useEffect, useState } from "react";
 import { Context } from "../../context/Context";
-import axios from "axios";
+import { axiosInstance } from '../../config';
 import {
   getStorage,
   ref,
@@ -79,7 +79,7 @@ export default function Settings() {
     };
     console.log("updatedUser", updatedUser)
     try {
-      const res = await axios.put("/users/" + user._id, updatedUser);
+      const res = await axiosInstance.put("/users/" + user._id, updatedUser);
       setSuccess(true);
       dispatch({ type: "UPDATE_SUCCESS", payload: res.data });
     } catch (err) {
