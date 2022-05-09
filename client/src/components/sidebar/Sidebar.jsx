@@ -10,6 +10,7 @@ export default function Sidebar() {
     const getCats = async () => {
       const res = await axios.get("/categories");
       setCats(res.data);
+      //TO BE DONE
     };
     getCats();
   }, []);
@@ -26,6 +27,8 @@ export default function Sidebar() {
           necessitatibus nostrum illum reprehenderit.
         </p>
       </div>
+      {/**
+      TO BE DONE
       <div className="sidebarItem">
         <span className="sidebarTitle">CATEGORIES</span>
         <ul className="sidebarList">
@@ -36,6 +39,7 @@ export default function Sidebar() {
           ))}
         </ul>
       </div>
+     */}
       <div className="sidebarItem">
         <span className="sidebarTitle">FOLLOW US</span>
         <div className="sidebarSocial">
