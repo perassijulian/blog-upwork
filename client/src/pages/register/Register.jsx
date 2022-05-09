@@ -9,6 +9,8 @@ export default function Register() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
 
+  const profilePic = "https://lh3.googleusercontent.com/moRvLpdkb8Rsd1QX-oGLJj8XNn6pWB73eDlZxkPZwuF6HS36bSCgOk5yO26XtbsqC3uacbIYNGrvPOeLej7P1ws2=w128-h128-e365-rj-sc0x00ffffff";
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(false);
@@ -17,6 +19,7 @@ export default function Register() {
         username,
         email,
         password,
+        profilePic,
       });
       res.data && window.location.replace("/login");
     } catch (err) {
