@@ -1,6 +1,6 @@
 import "./settings.css";
 import Sidebar from "../../components/sidebar/Sidebar";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Context } from "../../context/Context";
 import axios from "axios";
 import {
@@ -70,13 +70,6 @@ export default function Settings() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch({ type: "UPDATE_START" });
-    if (username==="") {
-      setUsername(user.username)
-      console.log('username updated')
-    }
-    if (email==="") {
-      setEmail(user.email)
-    }
     const updatedUser = {
       userId: user._id,
       username,
@@ -93,6 +86,13 @@ export default function Settings() {
       dispatch({ type: "UPDATE_FAILURE" });
     }
   };
+
+  useEffect(() => {
+    setUsername(user.username)
+    setEmail(user.email)
+  }, [])
+  
+
   return (
     <div className="settings">
       <div className="settingsWrapper">
